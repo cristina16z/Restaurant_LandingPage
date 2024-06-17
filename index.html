@@ -11,8 +11,10 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
+   <!--FavIcon-->
+    <link type="image/png" rel="icon" href="imatges/favIcon.ico">
 
-    <title>Document</title>
+    <title>Ice&Creps</title>
 </head>
 
 
@@ -21,15 +23,20 @@
 
     <!--les posem com a link per que quan clickes vagi a la secció corresponent mitjançant id -->
     <header class="head">
-        <a class="opcions" href="#nosaltres">Nosaltres</a>
+        <a class="opcions" href="#nosaltres">Nosotros</a>
         <a class="opcions" href="#carta">Carta</a>
-        <a class="opcions" href="#galeria">Galeria</a>
+        <a class="opcions" href="#galeria">Galería</a>
     </header>
 
 
 
     <div class="banner">
-        <img src="imatges/banner.jpg" alt="vista interna d'un bar gaming que té leds i pantalles ">
+        <picture><!--Canvi d'imatges segons resolucions-->
+            <source media="(max-width:576px)" srcset="imatges/banner3.jpg">
+            <source media="(max-width:768px)" srcset="imatges/banner2.jpg">
+          <img src="imatges/banner.jpg" alt="vista interna d'un bar gaming que té leds i pantalles">
+        </picture>
+    
         <div class="presentacio">
             <h2 class="h2principal">RESTAURANTE <span>GAMING</span></h2>
             <p>Tapas, dulces, creps y helados.</p>
@@ -41,7 +48,7 @@
     <main class="main_principal">
 
         <section class="main_section" id="nosaltres">
-            <h2 >Sobre Nosaltres</h2>
+            <h2 >Sobre Nosotros</h2>
             <div class="contingut">
                 <div class="image i1"><img src="imatges/img1.jpg" alt="plat de tortitas amb fruites del bosc"></div>
 
@@ -52,7 +59,7 @@
                     el punto fuerte de este establecimiento, con una selección irresistible que incluye gofres con
                     sirope, tortitas con frutas frescas y crepes rellenos de Nutella o mermelada, todo elaborado con
                     ingredientes frescos y de alta calidad.</text>
-                <div class="image i2"><img src="imatges/img1.jpg" alt="plat de tortitas amb fruites del bosc"></div>
+                <div class="image i2"><img src="imatges/creps.webp" alt="plat de tortitas amb fruites del bosc"></div>
                 <text class="descripcio2">La presentación cuidadosa de cada plato y la atención al detalle en la
                     decoración del local crean
                     un ambiente acogedor y atractivo para los clientes. Además de la excelente comida, el
@@ -71,7 +78,7 @@
                 <div class="scarta_sub1">Menú 1</div>
                 <div class="scarta_sub2">Menú 2</div>
                 <div class="scarta_txt1">
-                    <p class="scarta_subtitol">Contingut</p>
+                    <p class="scarta_subtitol">Contenido</p>
                     <p>Deléitate con nuestros irresistibles panqueques dulces, adornados con una exquisita variedad de
                         frutos rojos frescos. Cada bocado es una explosión de sabores jugosos y dulces que se mezclan
                         armoniosamente con la suavidad de los panqueques. Desde fresas maduras hasta arándanos jugosos y
@@ -80,7 +87,7 @@
                         de nuestros deliciosos panqueques de frutos rojos en cada cucharada.</p>
                 </div>
                 <div class="scarta_txt2">
-                    <p class="scarta_subtitol">Contingut</p>
+                    <p class="scarta_subtitol">Contenido</p>
                     <p>Embárcate en un viaje de sabores con nuestras exquisitas crepes rellenas y helados artesanales.
                         Nuestras crepes, finas y delicadas, se envuelven alrededor de suculentos rellenos que van desde
                         el clásico chocolate derretido hasta la dulzura de las frutas frescas. Complementa esta
@@ -98,28 +105,28 @@
                     <div class="overlay">Panckakes</div>
                 </div>
                 <div class=container_image>
-                    <img src="imatges/img1.jpg" alt="plat de tortitas amb fruites del bosc" class="image img3">
-                    <div class="overlay">Panckakes</div>
+                    <img src="imatges/icecream.jpg" alt="dues copes de gelat" class="image img3">
+                    <div class="overlay">Gelats</div>
                 </div>
                 <div class=container_image>
-                    <img src="imatges/img1.jpg" alt="plat de tortitas amb fruites del bosc" class="image img4">
-                    <div class="overlay">Panckakes</div>
+                    <img src="imatges/icecream.jpg" alt="dues copes de gelat" class="image img4">
+                    <div class="overlay">Gelats</div>
                 </div>
             </section>
         </section>
 
 
         <section class="main_section" id="galeria">
-            <h2 >Galeria d'imatges</h2>
+            <h2 >Galería de imágenes</h2>
             <section class="galeria">
-                <div class="image ef1"><img src="imatges/img1.jpg" alt="plat de tortitas amb fruites del bosc"></div>
+                <div class="image ef1"><img src="imatges/tortitas.jpg" alt="plat de tortitas amb fruites del bosc"></div>
                 <div class="image ef2"><img src="imatges/img1.jpg" alt="plat de tortitas amb fruites del bosc"></div>
-                <div class="image ef2"><img src="imatges/img1.jpg" alt="plat de tortitas amb fruites del bosc"></div>
+                <div class="image ef2"><img src="imatges/tortitas.jpg" alt="plat de tortitas amb fruites del bosc"></div>
                 <div class="image ef1"><img src="imatges/img1.jpg" alt="plat de tortitas amb fruites del bosc"></div>
                 <div class="image ef1"><img src="imatges/img1.jpg" alt="plat de tortitas amb fruites del bosc"></div>
+                <div class="image ef2"><img src="imatges/tortitas.jpg" alt="plat de tortitas amb fruites del bosc"></div>
                 <div class="image ef2"><img src="imatges/img1.jpg" alt="plat de tortitas amb fruites del bosc"></div>
-                <div class="image ef2"><img src="imatges/img1.jpg" alt="plat de tortitas amb fruites del bosc"></div>
-                <div class="image ef1"><img src="imatges/img1.jpg" alt="plat de tortitas amb fruites del bosc"></div>
+                <div class="image ef1"><img src="imatges/tortitas.jpg" alt="plat de tortitas amb fruites del bosc"></div>
             </section>
         </section>
     </main>
@@ -128,10 +135,10 @@
 
     <footer class="footer">
         <div class=info1><!--span: per els icones y a:link quan clickes et direcciona al gmail o per trucar -->
-            <div class="contact"><span class="material-symbols-outlined"> mail </span><a href="mailto:restaurant@gmail.com">restaurant@gmail.com</a></div>
+            <div class="contact"><span class="material-symbols-outlined"> mail </span><a href="mailto:restaurant@gmail.com">restaurante@gmail.com</a></div>
             <div class="contact"><span class="material-symbols-outlined">call </span><a href="+999999999">999 999 999</a></div>
         </div>
-        <div class = "footitol">Restaurant Gaming</div>
+        <div class = "footitol">Restaurante Gaming</div>
     </footer>
 
 
