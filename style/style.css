@@ -1,0 +1,628 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@200&display=swap');
+
+body{
+    margin: auto;
+    font-style: normal;
+    font-family:  'Chivo', sans-serif;
+}
+
+
+
+/*------------------------------------------------------------HEADER MENÚ-----------------------------------------------------------------*/
+
+
+.head{
+    display: flex;
+    color: white;
+    background-color: black;
+    font-family: 'Chivo', sans-serif;
+    justify-content: flex-end;
+    gap: 45px; /*espai entre elements */
+    padding: 16px;/*espai entre el header y els elements */
+    position: sticky;
+    top:0px; /*para saber dónde parar el sticky y se mantenga el menu en tot la pantalla*/
+    z-index: 100; /*sobrepongo el header por encima de todo (para que no se me traspase con el titulo al bajar) */
+}
+
+
+.opcions:hover{
+    text-decoration: underline;
+}
+
+
+/*Para que cuando clicas en las opciones, se te autodesplace hacia abajo hasta la sección correspondiente */
+html{
+    scroll-behavior: smooth; /*efecto de desplazamiento */
+}
+
+/*por defecto sale azul por ser un link, lo ponemos blanco y sin subrallado y así al pasar por encima se subralle*/
+a:link, a:visited{
+    color: white; 
+    text-decoration: none;
+}
+
+
+
+
+/*------------------------------------------------------------BANNER------------------------------------------------------------------------*/
+
+
+.h2principal{
+  
+    font-weight: normal;/*para que no me convierta todo en negrita */
+    font-size: 3em ; /*tamany del títol "restaurant de tapes" */
+}
+
+
+span{
+    font-weight:bold ;
+}
+
+
+/*opacidad de la imagen y que ocupe el 100%*/
+.banner img {
+    width: 100%;
+    filter: brightness(30%);
+}
+
+
+.presentacio {
+    color: white;
+    position: absolute;
+    top: 0; /*para que se visualice el <h2> i <p> con los paddings */
+    left: 0;
+    padding-top: 15vw;
+    padding-left: 10vw;
+    font-size: 1.1em;
+}
+
+
+
+
+/*----------------------------------------------------------MAIN----------------------------------------------------------------*/
+
+
+.main_principal{
+    display: flex;
+    flex-direction: column; /*en columnas las diferentes secciones */
+    align-items: center; 
+    /*para que se centre en sentido contrario al column, que es el row. 
+    Ya que de lo contrario se centraría de arriba a bajo, y así se centra de izquierda a derecha */
+}
+
+
+.main_section{ /*para centrar las secciones del main a la izquierda en row*/
+   /* border:1px solid black; Para ver lo que ocupa cada seccion */
+    width: 60%; 
+    padding: 2.5vw; /*espacio entre el contenido de cada seccion con la seccion */
+}
+
+
+
+                            /************************ SOBRE NOSALTRES ************************/
+
+
+
+.contingut{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    padding-top: 2%;
+    grid-template-areas:
+    "si1 sd1 sd1 sd1"
+    "si1 sd1 sd1 sd1"
+    "sd2 sd2 sd2 si2"
+    "sd2 sd2 sd2 si2";
+}
+
+
+.contingut .i1 {
+    grid-area: si1;
+    padding-top: 10%;
+}
+
+.contingut .i2{
+    grid-area: si2;
+    padding-top: 10%;
+}
+
+
+.descripcio1{
+    padding-top: 3%;
+    grid-area: sd1;
+    text-align: justify;
+}
+
+.descripcio2{
+    padding-top: 3%;
+    grid-area: sd2;
+    text-align: justify;
+}
+
+
+/*efectes imatges */
+.i1 img, .i2 img {
+    border-radius: 5%;  
+    /*responsive*/ 
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+
+
+
+
+                                /************************ CARTA ************************/
+
+                         
+.carta{
+display: grid;
+grid-template-columns: 0.5fr 1fr 1fr;
+gap: 10px;
+grid-template-areas:
+"t1 t1 t1"
+"sub1 txt1 txt1"
+"sub1 i1 i2" 
+"sub2 txt2 txt2"
+"sub2 i3 i4";
+}
+
+
+.scarta_titol{
+    display: flex;
+    grid-area:t1;
+    color: white;
+    background-color: rgb(19, 13, 43);
+    justify-content: center; /*centrar el texto con flex */
+    padding: 2%;
+    
+}
+
+
+.scarta_sub1{
+    font-weight: bold;
+    display: flex;
+    grid-area:sub1;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+
+.scarta_subtitol{
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+
+.scarta_sub2{
+    font-weight: bold;
+    display: flex;
+    grid-area:sub2;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+
+/*justificar texto*/
+.scarta_txt1 p, .scarta_txt2 p{
+    text-align: justify;
+}
+
+/*definicions per el grid area */
+.scarta_txt1{
+    grid-area: txt1;
+}
+
+.scarta_txt2{
+    grid-area: txt2;
+}
+
+.img1{
+    grid-area: i1;  
+}
+
+.img2{
+    grid-area: i2;
+}
+
+.img3{
+    grid-area: i3;
+}
+
+.img4{
+    grid-area: i4;
+}
+
+
+
+/*para hacer el overlay de los "panckackes"*/
+
+.container_image{
+    position: relative;
+    width: 100%;
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5); 
+    color: #f1f1f1;
+    width: 100%;
+    transition: .5s ease;
+    opacity:1;
+    color: white;
+    font-size: 1.2em;
+    padding-top: 0.7vw;
+    padding-bottom: 0.7vw;
+    text-align: center;
+  }
+
+
+
+                        /************************ GALERÍA D'IMATGES ************************/
+
+
+.galeria{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap:20px;
+}
+
+
+.galeria div{
+    width: 11vw; /*para que sea responsive, verifica wrap*/
+}
+
+
+.image img{
+    width: 100%;
+    height: 100%;
+} 
+
+
+/*para hacer el efecto del borde 
+dónde las imágenes más oscuras tengan borde negro
+y las imagenes normales se vean con borde gris */
+.ef1{
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    padding: 0.4vw;
+}
+
+
+.ef2{
+    border: 1px solid #c0bebe;
+    border-radius: 5px;
+    padding: 0.4vw;
+}
+
+
+/*opacidad más oscura  de las 4 imágenes*/
+.ef1{
+    filter: brightness(50%);
+}
+
+
+/*para que las imágenes claras al pasar por encima se oscurecen y haya un border*/
+.galeria .image:hover{
+    box-shadow: 0 0 3px 2px rgba(4, 205, 255, 0.5);
+    /*3px és desenfoque i 1px la cantidad de sombra*/
+    filter: brightness(30%);
+}
+
+
+
+
+/*------------------------------------------------------------FOOTER-------------------------------------------------------------*/
+
+
+
+.footer{
+    display: flex;
+    color: white;
+    background-color: black;
+  /*  height: 6vh; */
+    align-items: center;
+    justify-content: space-between;
+    padding: 1%;
+}
+
+
+.info1{
+    display: flex;
+    gap:40px; /*para separar los 2 elementos */
+   align-items: center;
+}
+
+
+/*para alinear en altura y definir separación entre el icono y el txt */
+.contact{
+    display: flex;
+    align-items: center;
+    gap:6px; 
+}
+
+
+/*efecto de los iconos para que se rellenen de color blanco */
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----------------------------------------------------------MEDIA QUERY--------------------------------------------------------*/
+
+
+
+/*TABLET*/
+
+@media only screen and (max-width:768px){
+
+    /*cambiar el menu a la derecha, el color txt y background color  */
+    .head{
+    justify-content: flex-start;
+    background-color: rgb(255, 255, 255);
+    }
+
+    .head > a:link, a:visited{ /*.head para seleccionar sólo los de arriba */
+        color: rgb(0, 0, 0); 
+    }
+
+
+    
+    /*                                                      GRID 1                                                               */
+
+    .contingut{
+        
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "sd1"
+        "si1"
+        "sd2"
+        "si2";
+    }
+
+    .contingut .i2 {
+        padding-top: 2%;
+    }
+    
+    .contingut .i1 {
+       padding-top: 2%;
+    }
+
+
+    .contingut .i1,  .contingut .i2{
+        padding-bottom: 5%;
+    }
+
+
+
+
+
+
+    /*                                                      GRID 2                                                               */
+
+    .carta{
+       
+        grid-template-columns: 0.5fr 2fr;
+        grid-template-areas:
+        "t1 t1 "
+        "sub1 txt1 "
+        "sub1 i1" 
+        "sub1 i2"
+        "sub2 txt2 "
+        "sub2 i3"
+        "sub2 i4";
+    }
+        
+
+
+    /*                                                      GALERÍA                                                            */
+    /* 2 columnes  */
+
+    .galeria > .image{
+        width: 27vw; 
+    }
+    
+}
+
+
+
+
+
+
+
+/*MÒVIL*/
+
+@media only screen and (max-width:576px){
+
+    /*Si queremos que las opciones del menú se vean horizontalmente
+    .head{
+    flex-direction: column;
+    align-content: center;
+    }*/
+
+
+    /*                                                      MAIN
+
+    Para que me ocupe toda la amplada, y ya no esté centrado el main (descripcio,carta,galeria)                             */
+  .main_section{
+    width: 95%;
+  }
+
+
+
+    /*                                                      GRID                                                            */
+
+    .carta{
+       
+        grid-template-columns: 2fr;
+        grid-template-areas:
+        "sub1"
+        "txt1"
+        "i1" 
+        "i2"
+        "sub2"
+        "txt2"
+        "i3"
+        "i4";
+    }
+
+    /*Para quitar t1 que es el título. (no sólo hay que quitarlo en el template-areas, también con el display none*/
+    .scarta_titol{
+        display: none;
+    }
+
+
+    /*ampliacion de las cajas en los subtítulos*/
+
+    .scarta_sub1{
+        padding: 5%;
+    }
+
+    .scarta_sub2{
+        padding: 5%;
+        margin-top: 6%; /*para que no quede tan pegado de la imagen de arriba (no fa falta) */
+    }
+
+
+    /*para aumentar el medio overlay de las imagenes y quede mejor, aunque no hace falta */
+    .overlay{
+        padding-top: 3.5vw;
+        padding-bottom:3.5vw;
+        font-size: 1.5em;
+    }
+    
+
+
+     /*                                                 GALERIA D'IMATGES                                                    */
+     /*en 1 columna  */
+
+     .galeria > .image{
+        width: 100vw; 
+    }
+
+
+
+    /*                                                      FOOTER                                                            */ 
+
+    /*per fer desapareixer el titol del restuarant que està a la dreta del footer */
+    .footitol{
+        display: none;
+    }
+
+    /*Després, com hi havia un space-between, és a dir, espai entre 1 element i un altre, quedaba a la dreta tot.
+    Ho cambiem per centrar-ho en el footer */
+
+    .footer{
+        justify-content: center;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----------------------------------------------------------DARK MODE --------------------------------------------------------*/
+:root{
+    
+    --background-light-mode:rgb(255, 255, 255);
+    --background-dark-mode:rgb(15, 15, 15);
+
+    --text-light-mode:rgb(0, 0, 0);
+    --text-dark-mode:white;
+
+    /*coses específiques*/
+    --background-box-dark: rgb(69, 69, 145);
+    --border-box-dark: white;
+    --border-boxshadow-dark: rgb(0, 246, 246);
+    --border-galeria-dark:white;
+    
+
+
+}
+
+@media (prefers-color-scheme:dark){
+
+    body{
+        background-color: var(--background-dark-mode);
+        color:var(--text-dark-mode);
+    }
+
+    /*caja del menú*/
+    .scarta_titol{
+        background-color: var(--background-box-dark);
+    }
+
+    /*borde de menu 1 y menu 2*/
+    .scarta_sub2, .scarta_sub1{
+        border-color: var(--border-box-dark);
+    }
+
+
+    /*en vez de oscurecer se hiciera más claro */
+    .galeria .image:hover{
+        box-shadow:var(--border-boxshadow-dar);
+        filter: brightness(110%);
+    }
+
+    /*borde de las imágnes de la galeria */
+    .ef1, .ef2{
+        border-color:var(--border-galeria-dark) ;
+    }
+
+
+    /*cuando cambie de resolución*/
+    @media only screen and (max-width:768px){
+        .head{
+           
+            background-color: var(--background-dark-mode);
+        }
+
+        .head > a:link, a:visited{ /*.head para seleccionar sólo los de arriba */
+            color: var( --text-dark-mode); 
+        }
+    
+
+    }
+}
