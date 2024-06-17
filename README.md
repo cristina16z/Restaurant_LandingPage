@@ -2,7 +2,7 @@
 
 ## ABOUT THIS PROJECT 🚀
 
-This project is made with HTML and CSS where the main focus is on practicing the layout of a responsive web page with different browser default themes. It also includes image optimization, video controls, and various types of animations and transitions.
+This project is made with HTML and CSS where the main focus is on practicing the layout of a responsive web page with different browser default themes. It also includes image optimization, video controls, and various types of animations and transitions with JavaScript.
 
 
 ## REQUIREMENTS
