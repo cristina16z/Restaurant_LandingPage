@@ -778,3 +778,102 @@ y las imagenes normales se vean con borde gris */
     font-size: 50px;
     transition: transform 0.4s ease;     
 }
+
+
+
+
+
+/*----------------------------------------------------------VIDEOS--------------------------------------------------------*/
+
+/*NOTAS ---> SECCION > CONTAINER > CADA VÍDEO DENTRO DEL CONTAINER (100%)
+.galeria_videos{
+    border: 1px solid rgb(226, 14, 14); 
+}
+
+.galeria_videos .container_videos {
+    border: 1px solid rgb(43, 172, 38);
+}
+
+.container_videos  video{
+    border: 1px solid blue;
+} */
+
+
+.galeria_videos{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+/*el video ocupa el 100% del contenedor*/
+.container_videos  video{
+    width: 100%;
+    height: auto;
+} 
+
+
+/*tamaño de cada video en el contenedor,
+reduzco su tamaño a 52vw para que se vea claro que está centrado,
+aunque se vea con el justify-content center de arriba  */
+.container_videos {
+    position: relative;
+    width: 52vw; 
+    
+}
+
+
+
+
+/*OVERLAY*/
+
+.container_videos .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5%; 
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    transition: .5s ease;
+    opacity: 1;
+    font-size: 1.2vw; 
+    padding: 2% 0;
+    text-align: center;
+    /*posicio icones*/
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/*espacio vital de los iconos*/
+.container_videos i{
+    margin-right: 1%;
+    cursor: pointer;
+}
+
+
+
+
+
+/*ANIMACIÓ HEAD*/
+/* Sticky/fixed navbar */
+#headd {
+    overflow: hidden;
+    padding: 40px 10px; 
+    transition: 0.4s; 
+    position: fixed; 
+    width: 100%;
+    top: 0; /
+  }
+  
+  /* Style the navbar links */
+#headd a {
+    float: left;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 25px;
+    margin-right: 2%;
+}

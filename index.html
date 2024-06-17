@@ -15,10 +15,8 @@
     <link type="image/png" rel="icon" href="imatges/favIcon.ico">
     <!--JQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
     <!--icone audio-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
     <title>Ice&Creps</title>
 </head>
 
@@ -27,10 +25,11 @@
 <body>
    
     <!--les posem com a link per que quan clickes vagi a la secció corresponent mitjançant id -->
-    <header class="head">
-        <a class="opcions" href="#nosaltres">Nosotros</a>
+    <header class="head" id="headd">
+        <a class="opcions" href="#nosaltres">Nosaltres</a>
         <a class="opcions" href="#carta">Carta</a>
         <a class="opcions" href="#galeria">Galería</a>
+        <a class="opcions" href="#videos">Videos</a>
     </header>
 
 
@@ -78,12 +77,12 @@
 
         <section class="main_section">
             <h2 class="S2">Icono con movimiento</h2>
-            <div class="icones">
+            <div  class="icones">
                 <i id="autorenew" class="material-icons" onclick="run_rotate_scale()">autorenew</i>
             </div>
         </section>
 
-
+        
         <section class="main_section" id="carta">
             <h2>Carta</h2>
             <section class="carta">
@@ -142,6 +141,31 @@
                 <div class="image ef1 a8"><img src="imatges/tortitas.jpg" alt="plat de tortitas amb fruites del bosc"></div>
             </section>
         </section>
+
+
+        <section class="main_section" id="videos">
+            <h2>Videos del Restaurante</h2>
+            <section class="galeria_videos">
+
+            <div class="container_videos">
+
+                <video width="1280" height="720"  id="videoo" autoplay muted>
+                <source src="videos/video1.mp4" type="video/mp4">
+                <source src="videos/video2.webm" type="video/webm">
+                <source src="videos/video3.ogg" type="video/ogg">
+                Your browser does not support the video tag.
+                </video>
+
+                <div class="overlay">
+                <i id="play_and_pause" class="material-icons" onclick="run_video()">pause_circle</i>
+                <i id="sound_and_muted" class="material-icons" onclick="run_sound()">volume_up</i>
+                </div>
+
+               
+            </div>
+
+            </section>
+        </section>
     </main>
 
 
@@ -158,11 +182,11 @@
 
 
 
-
-    
-
-    <!--Ocultar o no l'apartat de sobre nosaltres con JQuery-->
     <script>
+
+        console.log("inici del projecte");
+
+        /*Ocular o no l'apartat de sobre nosaltres*/
         $(document).ready(function(){
             $(".S1").click(function(){
                 console.log("Codi funció amagar o mostrar apartat Sobre Nosaltres");
@@ -180,17 +204,15 @@
 
 
 
-
-         /*Funciones del scroll */
-         window.onscroll = function() {
+        /*Funciones del scroll */
+        window.onscroll = function() {
+            scrollFunction();
+            playVideoOnScroll();
             run_rotate_scale();
         };
 
 
-
         /*ICONA AMB MOVIMENT:  Animación de la icona amb scroll */
-        var previo = window.pageYOffset;
-
         function run_rotate_scale() {
         const icon = document.getElementById('autorenew');
         const scrollPosition = window.pageYOffset;
@@ -206,7 +228,102 @@
         }
         }
 
-    </script>
-    
+
+
+
+        /*1. Animacion Menú con Scroll*/
+        function scrollFunction() {
+            
+            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+                document.getElementById("headd").style.padding = "10px 10px";
+                
+            } else {
+                document.getElementById("headd").style.padding = "40px 10px";
+            }
+        }
+
+
+        /*-Funcionalidades de los botones del vídeo*/
+  
+        var video1 = document.getElementById("videoo");
+        var isMuted = video1.muted;
+        var PlayOrPause = document.getElementById("play_and_pause");
+
+
+     
+
+        /*2. Play Video con el SCROLL */
+        
+        var previo = window.pageYOffset;// Variable para almacenar la posición anterior del scroll
+        //sirve para la funcion playVideoOnScroll & run_rotate_scale que se hacen con scroll
+
+        function playVideoOnScroll()  {
+            //Posició actual del scroll
+            var actual = window.pageYOffset;
+
+            // Si se ha hecho un scroll hacia arriba o hacia abajo
+            if (Math.abs(previo - actual) > 50) {
+                // Si el scroll es hacia abajo
+                if (previo < actual) {
+                    console.log("Scroll hacia abajo");
+                    if (video1.paused) {
+                        video1.play();
+                        PlayOrPause.innerHTML = "pause_circle";
+                    }
+                    
+                } else {// Scroll hacia arriba
+                    
+                    console.log("Scroll hacia arriba");
+                    if (!video1.paused) {
+                        video1.pause();
+                        PlayOrPause.innerHTML = "play_circle";
+                    }
+                }
+                // Actualizamos la posición anterior del scroll
+                previo = actual;
+            }
+        };
+
+
+
+
+        /*BUTTONS: cambio de icono y función de play&Pause and Sound&Mute*/
+        
+        function run_video() {
+
+            if (video1.paused) {
+                console.log("Funció Run_Video: El vídeo està pausat, ara es reproduirà");
+                video1.play();
+                PlayOrPause.innerHTML = "pause_circle";
+            } else {
+                console.log("Funció Run_Video: El vídeo s'està reproduint, ara es pausarà");
+                video1.pause();
+                PlayOrPause.innerHTML = "play_circle";
+            }
+        }
+
+
+
+        var SoundOrMuted = document.getElementById("sound_and_muted");
+
+        function run_sound(){
+            
+            if (isMuted) {
+                console.log("Funció Run_Sound: Està muted, ara s'activarà el so");
+                video1.volume = 1;
+                isMuted = false;
+                video1.muted = false;
+                SoundOrMuted.innerHTML = "volume_up";
+            } else {
+                console.log("Funció Run_Sound: Té So, ara es posarà muted");
+                video1.volume = 0;
+                isMuted = true;
+                video1.muted = true;
+                SoundOrMuted.innerHTML = "volume_off";
+            }
+        }
+
+  
+    </script>    
 </body>
 </html>
