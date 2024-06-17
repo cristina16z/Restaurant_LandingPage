@@ -13,6 +13,11 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
    <!--FavIcon-->
     <link type="image/png" rel="icon" href="imatges/favIcon.ico">
+    <!--JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!--icone audio-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <title>Ice&Creps</title>
 </head>
@@ -20,7 +25,7 @@
 
 
 <body>
-
+   
     <!--les posem com a link per que quan clickes vagi a la secció corresponent mitjançant id -->
     <header class="head">
         <a class="opcions" href="#nosaltres">Nosotros</a>
@@ -35,7 +40,7 @@
             <source media="(max-width:576px)" srcset="imatges/banner3.jpg">
             <source media="(max-width:768px)" srcset="imatges/banner2.jpg">
           <img src="imatges/banner.jpg" alt="vista interna d'un bar gaming que té leds i pantalles">
-        </picture>
+          </picture>
     
         <div class="presentacio">
             <h2 class="h2principal">RESTAURANTE <span>GAMING</span></h2>
@@ -48,7 +53,7 @@
     <main class="main_principal">
 
         <section class="main_section" id="nosaltres">
-            <h2 >Sobre Nosotros</h2>
+            <h2 class="S1">Sobre Nosotros</h2>
             <div class="contingut">
                 <div class="image i1"><img src="imatges/img1.jpg" alt="plat de tortitas amb fruites del bosc"></div>
 
@@ -67,6 +72,14 @@
                     memorable para todos los comensales. Con su ambiente acogedor y su exquisita oferta
                     gastronómica, este restaurante se convierte en el destino ideal para aquellos que buscan
                     disfrutar de un delicioso desayuno o postre en un ambiente encantador y acogedor.</text>
+            </div>
+        </section>
+
+
+        <section class="main_section">
+            <h2 class="S2">Icono con movimiento</h2>
+            <div class="icones">
+                <i id="autorenew" class="material-icons" onclick="run_rotate_scale()">autorenew</i>
             </div>
         </section>
 
@@ -119,14 +132,14 @@
         <section class="main_section" id="galeria">
             <h2 >Galería de imágenes</h2>
             <section class="galeria">
-                <div class="image ef1"><img src="imatges/tortitas.jpg" alt="plat de tortitas amb fruites del bosc"></div>
-                <div class="image ef2"><img src="imatges/img1.jpg" alt="plat de tortitas amb fruites del bosc"></div>
-                <div class="image ef2"><img src="imatges/tortitas.jpg" alt="plat de tortitas amb fruites del bosc"></div>
-                <div class="image ef1"><img src="imatges/img1.jpg" alt="plat de tortitas amb fruites del bosc"></div>
-                <div class="image ef1"><img src="imatges/img1.jpg" alt="plat de tortitas amb fruites del bosc"></div>
-                <div class="image ef2"><img src="imatges/tortitas.jpg" alt="plat de tortitas amb fruites del bosc"></div>
-                <div class="image ef2"><img src="imatges/img1.jpg" alt="plat de tortitas amb fruites del bosc"></div>
-                <div class="image ef1"><img src="imatges/tortitas.jpg" alt="plat de tortitas amb fruites del bosc"></div>
+                <div class="image ef1 a1"><img src="imatges/tortitas.jpg" alt="plat de tortitas amb fruites del bosc"></div>
+                <div class="image ef2 a2"><img src="imatges/img1.jpg" alt="plat de tortitas amb fruites del bosc"></div>
+                <div class="image ef2 a3"><img src="imatges/tortitas.jpg" alt="plat de tortitas amb fruites del bosc"></div>
+                <div class="image ef1 a4"><img src="imatges/img1.jpg" alt="plat de tortitas amb fruites del bosc"></div>
+                <div class="image ef1 a5"><img src="imatges/img1.jpg" alt="plat de tortitas amb fruites del bosc"></div>
+                <div class="image ef2 a6"><img src="imatges/tortitas.jpg" alt="plat de tortitas amb fruites del bosc"></div>
+                <div class="image ef2 a7"><img src="imatges/img1.jpg" alt="plat de tortitas amb fruites del bosc"></div>
+                <div class="image ef1 a8"><img src="imatges/tortitas.jpg" alt="plat de tortitas amb fruites del bosc"></div>
             </section>
         </section>
     </main>
@@ -142,5 +155,58 @@
     </footer>
 
 
+
+
+
+
+    
+
+    <!--Ocultar o no l'apartat de sobre nosaltres con JQuery-->
+    <script>
+        $(document).ready(function(){
+            $(".S1").click(function(){
+                console.log("Codi funció amagar o mostrar apartat Sobre Nosaltres");
+                $(".contingut").slideToggle();
+            });      
+            
+            
+            $(".S2").click(function(){
+                console.log("Codi funció amagar o mostrar apartado Icono con movimiento");
+                $(".icones").toggle();
+            }); 
+
+        });
+
+
+
+
+
+         /*Funciones del scroll */
+         window.onscroll = function() {
+            run_rotate_scale();
+        };
+
+
+
+        /*ICONA AMB MOVIMENT:  Animación de la icona amb scroll */
+        var previo = window.pageYOffset;
+
+        function run_rotate_scale() {
+        const icon = document.getElementById('autorenew');
+        const scrollPosition = window.pageYOffset;
+        
+        var actual = window.pageYOffset;
+        if ( actual > previo ){
+            const rotation = scrollPosition % 360; // Valor de rotació basat en el scroll
+            const scale = 1 + scrollPosition / 2000; // Incrementar la mida amb el scroll
+
+            icon.style.transform = `rotate(${rotation}deg) scale(${scale})`;
+        }else{
+            icon.style.transform = 'rotate(0deg) scale(1)';
+        }
+        }
+
+    </script>
+    
 </body>
 </html>

@@ -564,6 +564,7 @@ y las imagenes normales se vean con borde gris */
 
 
 /*----------------------------------------------------------DARK MODE --------------------------------------------------------*/
+
 :root{
     
     --background-light-mode:rgb(255, 255, 255);
@@ -625,4 +626,155 @@ y las imagenes normales se vean con borde gris */
     
 
     }
+}
+
+
+
+
+
+/*----------------------------------------------------------ANIMACIONS--------------------------------------------------------*/
+
+
+/*para hacer ver que tiene funcionalidad el título de ésta sección (jquery de ocultar)*/
+.S1, .S2{
+    border: 1px solid rgb(20, 20, 20);
+    padding: 2%;
+}
+
+.S1:hover, .S2:hover{
+    color: #c0bebe;
+    background-color:  rgb(27, 27, 27);
+}
+
+
+
+/*Para que no se sobrepase las imágenes del borde*/
+.galeria .image{
+    overflow: hidden;
+}
+
+
+
+/*Efecte en la Imatge1 més gran */
+
+.galeria .a1 img{
+
+    transition: transform 0.4s;
+}
+
+
+.galeria .a1:hover img{
+    transform: scale(1.4);
+    filter: none; /*para que no afecte el filtrer que hay más abajo*/
+}
+
+
+
+/*Efecte en la Imatge2 més petit */
+
+.galeria .a2 img{
+
+    transition: transform 0.5s;
+}
+
+
+.galeria .a2:hover img{
+    transform: scale(0.9);
+    filter: none; /*para que no afecte el filtrer que hay más abajo*/
+}
+
+
+
+/*Efecte de la imatge3 amb les 3 propietats scale gran */
+
+.galeria .a3 img{
+    transition: transform 0.5s;
+}
+
+
+.galeria .a3:hover img{
+    transform: rotate(5deg) scale(1.8);
+    filter: grayscale(85%);
+}
+
+
+
+/*Efecte de la resta d'imatges amb les 3 propietats a scale més petit*/
+
+.galeria img{
+
+    transition: transform 0.5s;
+}
+
+
+.galeria :hover img{
+    transform: rotate(5deg) scale(0.8);
+    filter: grayscale(85%);
+}
+
+
+
+
+
+
+/*Animació Títol transició moviment i canvi de color */
+@keyframes titolMovement {
+    /*empiece transparente, y más abajo*/
+    0%{
+        transform: translateY(70%);
+        filter: opacity(0%);
+      
+    }
+
+    50%{
+        color: rgb(255, 115, 0);
+    }
+    
+    /*Acabe sin transparencia, blanco y en su posición*/
+    100% {
+        color: white;
+        transform: translateY(0);
+        filter: opacity(100%);
+        
+    }
+}
+
+.presentacio{
+    animation-name: titolMovement;
+    animation-duration: 4s;
+}
+
+
+
+
+
+
+/*Animació Icones */
+.material-symbols-outlined{
+    transition: transform 0.3s ; 
+}
+
+.material-symbols-outlined:hover, /*hover del icono*/
+.contact:hover .material-symbols-outlined { /*hover del txt */
+    transform: rotateY(180deg) scale(1.5); 
+    color: red;
+    
+}
+
+
+
+
+
+/*--------------------------------ANIMACIÓ ICONE ROTATE AND SCALE WITH SCROLL ----------------------*/
+
+
+.icones{
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+}
+
+#autorenew {
+    font-size: 50px;
+    transition: transform 0.4s ease;     
 }
